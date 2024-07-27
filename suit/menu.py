@@ -121,7 +121,7 @@ class MenuManager(object):
             app_key = native_app['app_url'].split('/')[-2]
             self._available_apps['apps'][app_key] = native_app
             for native_model in native_app['models']:
-                if 'admin_url' not in native_model:
+                if 'admin_url' not in native_model or native_model['admin_url'] is None:
                     # Can happen with incomplete permissions, like Delete only, etc.
                     continue
                 model_key = '.'.join(native_model['admin_url'].split('/')[-3:-1])
