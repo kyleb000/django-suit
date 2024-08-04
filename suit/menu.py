@@ -117,6 +117,8 @@ class MenuManager(object):
         """
         Make dictionary of native apps and models for easier matching
         """
+        if self.available_apps is None:
+            return
         for native_app in self.available_apps:
             app_key = native_app['app_url'].split('/')[-2]
             self._available_apps['apps'][app_key] = native_app
